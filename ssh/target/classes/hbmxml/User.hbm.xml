@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lol.lw.entity">
+	<class name="User" table="FUSER">
+		<id name="id" type="int" column="id">
+            <generator class="native"/>
+		</id>
+		<property name="userName" type="string" column="USERNAME" length="20" not-null="true"/>
+        <set name="set"   table="USERORDER">
+               <key>
+                  <column name="userId"></column>
+               </key>
+               <one-to-many class="com.lol.lw.entity.UserOrder"/>
+        </set>
+	</class>
+</hibernate-mapping>
